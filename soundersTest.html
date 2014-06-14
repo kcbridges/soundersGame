@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<htmL>
+<head>
+</head>
+<body>
+<body bgcolor="#658d1b">
+	<!--this is supposedly rave green... doesn't look like it to me but oh well-->
+<h1><center> Sounders Guessing Game </center></h1>
+
+<center><button onclick="javascript:soundersGuessGame()">Start Game</button><br></center>
+<br>
+<br>
+
+<table border="1" align="center">
+<tr>
+	<td><img width="300px" height="300px" src="http://img.bleacherreport.net/img/images/photos/002/656/347/hi-res-177071907-clint-dempsey-of-the-seattle-sounders-fc-runs-during_crop_exact.jpg?w=1500&h=1500&q=85" /></td>
+	<td><img width="300px" height="300px" src="http://www.mlssoccer.com/sites/league/files/imagecache/620x350/sites/default/files/image_nodes/2011/05/evans_0.jpg" /></td>
+	<td><img width="300px" height="300px" src="http://seattletimes.com/ABPub/2013/07/19/2021423002.jpg" /></td>
+</tr>
+<tr>
+	<td>Clint Dempsey</td>
+	<td>Brad Evans </td>
+	<td>Obafemi Martins</td>
+</tr>
+<tr>
+	<td><img width="300px" height="300px" src="http://www.soccerbyives.net/images/2013/01/FredyMonteroGoodbye-ISIPhotos.com_.jpg" /></td>
+	<td><img width="300px" height="300px" src="http://seattle-mp7static.mlsdigital.net/styles/image_default/s3/images/0d729b28ca1d4005982125819d7cbdae.jpeg?itok=J9y2WpUM" /></td>
+	<td><img width="300px" height="300px"jpeg src="http://cdn.bloguin.com/wp-content/uploads/sites/82/2013/12/EddieJohnson.jpg" /></td>
+</tr>
+<tr>
+	<td>Fredy Montero</td>
+	<td>Deandre Yedlin</td>
+	<td>Eddie Johnson</td>
+</tr>
+<tr>
+	<td><img width="300px" height="300px" src="http://www1.pictures.zimbio.com/gi/Osvaldo+Alonso+MLS+Playoffs+Seattle+Sounders+t7zDRs8GU5xl.jpg" /></td>
+	<td><img width="300px" height="300px" src="http://www.mlssoccer.com/sites/league/files/imagecache/620x350/sites/default/files/image_nodes/2011/05/Keller.jpg" /></td>
+	<td><img width="300px" height="300px" src="http://www.mlssoccer.com/sites/league/files/imagecache/620x350/sites/default/files/image_nodes/2011/04/rosales.jpg" /></td>
+</tr>
+<tr>
+	<td>Osvaldo Alonso</td>
+	<td>Kasey Keller</td>
+	<td>Mauro Rosales</td>
+</tr>
+</table>
+</body>
+
+<script>
+
+//player vars
+var brad = "brad evans"
+var deand = "deandre yedlin"
+var fredy = "fredy montero"
+var clint = "clint dempsey"
+var oba = "obafemi martins"
+var ozzie = "osvaldo alonso"
+var kasey = "kasey keller"
+var eddie = "eddie johnson"
+var mauro = "mauro rosales"
+
+//question objects
+//message: what displays to the user
+//a1, a2, a3: answers (each object can have up to three correct answers, and I could add more if I wnated)
+//congrats: what displays when the user gets the question right
+
+var q1 = {
+	message : "1. Which Sounder was called to the USMNT World Cup Training Camp but did not get picked for the final World Cup team?",
+	a1 : brad,
+	congrats : "Correct! But don't get too cocky yet...",
+}
+var q2 = {
+	message : "2. Which Sounder has the team record for assists in a season?",
+	a1 : mauro,
+	congrats : "Wow, you're pretty good. But can you answer the next question?",
+}
+var q3 = {
+	message : "3. Who scored the first goal of the Sounders MLS era?",
+	a1 : fredy,
+	congrats : "Perfecto!",
+}
+var q4 = {
+	message : "4. Which famous Sounders goalkeeper now works as an announcer for the Sounders?",
+	a1 : kasey,
+	congrats : "Very true!", 
+}
+var q5 = {
+	message : "5. How many Open Cups have the Seattle Sounders won?",
+	a1 : 3,
+	a2 : "three",
+	congrats : "It should have been 4... but alas, you are correct."
+}
+var q6 = {
+	message : "6. Which team member is affectionately known as the Honey Badger?",
+	a1 : ozzie,
+	congrats : "Correct!"
+}
+
+//I am having trouble getting this question to display ONLY if the person gets q6 correct. I need to think more about it...
+var qBonus = {
+	message : "BONUS QUESTION: How many total games has Osvaldo Alonso appeared in for the Sounders (as of June 3rd 2014)?",
+	a1 : 153,
+	a2 : "one hundred and fifty three",
+	a3: "one hundred fifty three",
+	congrats : "WOW, great job! I wouldn't have guessed it myself!",
+	specialIncorrect : "Yeah, that was a tough one. Good try!",
+}
+var q7 = {
+	message : "7. Name one of the 2014 Designated Players.",
+	a1 : clint,
+	a2 : ozzie,
+	a3 : oba,
+	congrats : "Great work!"
+}
+
+var q8 = {
+	message : "8. Which former player is now a Designated Player at DC United?",
+	a1 : eddie,
+	congrats : "This is true, and perhaps for the best..."
+}
+
+var q9 = {
+	message : "9. Which player is known for doing backflips when he scores goals?",
+	a1 : oba,
+	congrats : "That's why the call it 'obaflips'!!!"
+}
+
+var q10 = {
+	message : "10. Name a player who has had the number 17 during his tenure with the Sounders.",
+	a1 : fredy,
+	a2: deand,
+	congrats : "Yes - Fredy Montero was the original bearer of the number - Deandre Yedlin took it when Clint Dempsey joined the team and wanted Deandre's number 2."
+}
+
+//the standard incorrect message
+var incorrect = "I'm sorry, that answer is incorrect."
+
+//object array - of the questions
+var questionArray = [q1, q2, q3, q4, q5, q6, q7, q8, q9, q10]
+
+//gets how many questions are in the array
+var questionArrayLength = questionArray.length
+
+//declares var 'right' so that you can count how many answers were right
+var right = 0
+
+
+
+function soundersGuessGame() {
+	alert("Welcome to the Sounders Guessing Game, meant to test your knowledge of the Sounders in the MLS era (2009-present)!")
+
+	//does this loop until the end of the array
+	for (var i = 0; i < questionArrayLength; i++) {
+
+		var userAnswer = prompt(questionArray[i].message).toLowerCase();
+
+		if (userAnswer == questionArray[i].a1 || userAnswer == questionArray[i].a2 || userAnswer == questionArray[i].a3) {
+			alert(questionArray[i].congrats);
+			console.log(right++);
+		}
+		//if the user gets the question wrong the first time, the user gets one second try
+		else {
+			for (tries = 1; tries < 2; tries++) {
+				alert("Wrong! Try again.");
+				var userAnswer = prompt(questionArray[i].message).toLowerCase();
+				if (userAnswer == questionArray[i].a1 || userAnswer == questionArray[i].a2 || userAnswer == questionArray[i].a3) {
+					alert(questionArray[i].congrats);
+					console.log(right++);
+				}
+
+				else {
+					alert(incorrect)
+				}
+			}
+		}
+	}
+	//this is just a cute bonus question
+	var qfinal = prompt("And... final question: Who is your all-time favorite Sounder???")
+		alert("Great answer! All Sounders are great Sounders!")
+		console.log(right++);
+		alert("You got " + right + " out of 10 correct.")
+		//There are 11 possible right answers, due to the bonus "final question." So it's not a bug if it says 11 out of 10 correct.
+		if (right > 7) {
+			alert("You are a Sounders genius!")
+		}
+		else if (right >=5 && right <= 7) {
+			alert("You did okay. There is some more you could learn though.")
+		}
+		else
+		{
+			alert("You really don't know very much about the Sounders, unfortunately...")
+		}
+
+}
+
+</script>
