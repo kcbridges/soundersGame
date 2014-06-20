@@ -106,7 +106,6 @@ var questionArrayLength = questionArray.length
 //declares var 'right' so that you can count how many answers were right
 var right = 0
 
-
 function soundersGuessGame() {
 	alert("Welcome to the Sounders Guessing Game, meant to test your knowledge of the Sounders in the MLS era (2009-present)!")
 
@@ -118,7 +117,7 @@ function soundersGuessGame() {
 			alert(questionArray[i].congrats);
 			console.log(right++);
 
-			if (userAnswer == ozzie && questionArray[5]) {
+			if (userAnswer == ozzie && questionArray[6]) {
 				questionArray.splice(6, 0, qBonus);
 			}
 			
