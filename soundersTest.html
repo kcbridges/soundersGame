@@ -92,7 +92,7 @@ qBonus = new question("BONUS QUESTION: How many total games has Osvaldo Alonso a
 q7 = new question("7. How many Open Cups have the Seattle Sounders won?", 3, "three", undefined, "It should have been four... but alas, you are correct.");
 q8 = new question("8. Which former player is now a Designated Player at DC United?", eddie, undefined, undefined, "This is true, and perhaps for the best...")
 q9 = new question("9. Which player is known for doing backflips when he scores goals?", oba, undefined, undefined, "That's why the call it 'obaflips'!!!")
-q10 = new question("10. Name a player who has had the number 17 during his tenure with the Sounders.", fredy, deand, "Yes - Fredy Montero was the original bearer of the number - Deandre Yedlin took it when Clint Dempsey joined the team and wanted Deandre's number 2.")
+q10 = new question("10. Name a player who has had the number 17 during his tenure with the Sounders.", fredy, deand, undefined, "Yes - Fredy Montero was the original bearer of the number - Deandre Yedlin took it when Clint Dempsey joined the team and wanted Deandre's number 2.")
 
 //the standard incorrect message
 var incorrect = "I'm sorry, that answer is incorrect."
@@ -119,6 +119,7 @@ function soundersGuessGame() {
 
 			if (userAnswer == ozzie && questionArray[6]) {
 				questionArray.splice(6, 0, qBonus);
+				questionArrayLength = questionArray.length;
 			}
 			
 		}
